@@ -7,7 +7,6 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/require"
 )
 
@@ -28,11 +27,6 @@ func TestRepeat(t *testing.T) {
 }
 
 func TestRepeatBestUnits(t *testing.T) {
-	lg.SetFormatter(&logrus.TextFormatter{
-		ForceColors:      true,
-		DisableTimestamp: true,
-	})
-
 	bestUnits := make(map[string]int)
 
 	for sup := uint64(minSupply); sup < uint64(maxSupply); sup += uint64(step) {
@@ -41,7 +35,7 @@ func TestRepeatBestUnits(t *testing.T) {
 	}
 
 	for units, n := range bestUnits {
-		lg.Println(units, n)
+		log().Println(units, n)
 	}
 }
 
@@ -95,7 +89,7 @@ func supplyBestUnits(sup uint64) []uint64 {
 		}
 	}
 
-	lg.Println(sup, best, minTotal/sup, minTotal, bestMaxBills, maxUsed)
+	log().Println(sup, best, minTotal/sup, minTotal, bestMaxBills, maxUsed)
 
 	return best
 }
