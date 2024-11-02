@@ -1,16 +1,15 @@
-package mike
+package banknotecalculator
 
 import (
+	"fmt"
 	"math"
 	"math/rand"
 	"testing"
 
-	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/require"
 )
 
 var (
-	lg                   *logrus.Logger
 	minSupply, maxSupply = 10000, 1000000000
 	step                 = minSupply
 )
@@ -31,7 +30,7 @@ func TestOnce(t *testing.T) {
 		}
 		require.Equal(t, cnt, uint64(n))
 
-		log().Println(n, used)
+		fmt.Println(n, used)
 	}
 }
 
@@ -80,21 +79,9 @@ func TestOnceBestUnits(t *testing.T) {
 						total += used
 					}
 
-					log().Println(units, total, useds)
+					fmt.Println(units, total, useds)
 				}
 			}
 		}
 	}
-}
-
-func log() *logrus.Logger {
-	if lg == nil {
-		lg = logrus.New()
-		lg.SetFormatter(&logrus.TextFormatter{
-			ForceColors:      true,
-			DisableTimestamp: true,
-		})
-	}
-
-	return lg
 }

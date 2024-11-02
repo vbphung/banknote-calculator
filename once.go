@@ -1,4 +1,4 @@
-package mike
+package banknotecalculator
 
 type Once interface {
 	Cal(amount uint64) []uint64

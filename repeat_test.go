@@ -1,6 +1,7 @@
-package mike
+package banknotecalculator
 
 import (
+	"fmt"
 	"math"
 	"math/rand"
 	"slices"
@@ -22,7 +23,7 @@ func TestRepeat(t *testing.T) {
 		}
 		require.Equal(t, cnt, uint64(n))
 
-		log().Println(n, used)
+		fmt.Println(n, used)
 	}
 }
 
@@ -35,7 +36,7 @@ func TestRepeatBestUnits(t *testing.T) {
 	}
 
 	for units, n := range bestUnits {
-		log().Println(units, n)
+		fmt.Println(units, n)
 	}
 }
 
@@ -89,7 +90,7 @@ func supplyBestUnits(sup uint64) []uint64 {
 		}
 	}
 
-	log().Println(sup, best, minTotal/sup, minTotal, bestMaxBills, maxUsed)
+	fmt.Println(sup, best, minTotal/sup, minTotal, bestMaxBills, maxUsed)
 
 	return best
 }

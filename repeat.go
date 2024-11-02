@@ -1,4 +1,4 @@
-package mike
+package banknotecalculator
 
 type Repeat interface {
 	Cal(amount uint64) map[uint64]uint

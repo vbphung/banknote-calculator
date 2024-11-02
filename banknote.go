@@ -1,4 +1,4 @@
-package mike
+package banknotecalculator
 
 import (
 	"slices"
